@@ -9,7 +9,8 @@ Teste seus conhecimentos sobre o custo de elixir das cartas do jogo Mobile <a hr
   <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#memo-licença">Licença</a>
+  <a href="#-licença">Licença</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-desenvolvedor">Desenvolvedor</a>
 </p>
 
 <p align="center">
@@ -28,7 +29,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [UX Pilot (Gerar Layout)](https://uxpilot.ai)
 - [Clash Royale - Recurso Real (Imagens do Jogo)](https://drive.google.com/drive/folders/15uvfDfI2sX6z9jVbqhGfp_lEiIzhJX7L)
 
-## 💻 Projeto - em andamento
+## 💻 Projeto
 
 O <b>Clash Royale Quiz</b>, é um jogo onde o jogador testa os conhecimentos dos valores de elixir de cada carta do jogo. Dominar isso, é fundamental para quem desejar ter um bom desempenho no jogo.
 
