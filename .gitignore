@@ -1,0 +1,5 @@
+# Ignorar a pasta de arquivos
+GitIgnore/
+
+# Ignorar arquivo DS_Store
+.DS_Store
