@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/main.css">
+    <title>Clash Royale Quiz</title>
+</head>
+<body>
+    
+
+
+<div class="logo">
+    <img src="https://i.postimg.cc/GpCxYmvc/title.png" alt="Algum Logo" />
+  </div>
+
+  <body>
+    
+    <div class="titulo">
+      <h2>Clash Royale - Elixir Quiz</h2>
+      <p>Teste seus conhecimentos sobre o custo de elixir das cartas</p>
+    </div>
+  
+  <div class="conteudo-jogo">
+    <section class="questionario">
+      <div class="conteudo">
+        <div class="conteudo__pergunta">
+          <span class="indice__pergunta"></span>
+          <span class="pergunta"></span>
+        </div>
+        <img src="" alt="Avatar da Carta" id="imagemCarta">
+        
+        <div class="container__perguntas">
+          <div class="perguntas">
+            <span class="indice__pergunta">A</span>
+            <span class="indice__pergunta">B</span>
+            <span class="indice__pergunta">C</span>
+            <span class="indice__pergunta">D</span>
+          </div>
+          <div class="respostas"></div>
+        </div>
+
+          <div class="progresso__geral">
+            <span class="progresso"></span>
+            <button onclick="finalizarJogo()">Finalizar Jogo</button>
+          </div>
+      </div>
+      
+      <div class="fim">
+        <span></span>
+        <button onclick="carregarPergunta()">Reiniciar Jogo</button>
+      </div>
+
+    </section>
+
+  </div>
+
+  <footer>
+    <button>Score: </button>
+  </footer>
+
+<script src="/script/main.js"></script>
+</body>
+</html>
