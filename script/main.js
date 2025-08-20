@@ -1,40 +1,5 @@
-// PARTE 1: Lista de perguntas e respostas
-perguntas = [
-    {
-      imagem: "/images/Cartas/Comum/Arqueiras.png",
-      raridade: "Comum",
-      pergunta: "Qual o custo de Elixir das Arqueiras?",
-      respostas: [
-        { opcao: "1", correto: false },
-        { opcao: "2", correto: true },
-        { opcao: "3", correto: false },
-        { opcao: "4", correto: false },
-      ]
-    },
-    { 
-      imagem: "/images/Cartas/Comum/Barbaros de Elite.png",
-      pergunta: "Qual o custo de Elixir dos Bárbaros de Elite?",
-      raridade: "Comum",
-      respostas: [
-        { opcao: "2", correto: false },
-        { opcao: "3", correto: false },
-        { opcao: "4", correto: true },
-        { opcao: "5", correto: false },
-      ]
-    },
-    {
-      imagem: "/images/Cartas/Comum/Barbaros.png",
-      pergunta: "Qual o custo de Elixir dos Bárbaros ?",
-      
-      respostas: [
-        { opcao: "1", correto: false },
-        { opcao: "2", correto: false },
-        { opcao: "3", correto: true },
-        { opcao: "4", correto: false },
-      ]
-    },
-];
-
+// PARTE 1: Importando as perguntas de um arquivo separado
+import perguntas from './questions.js';
 
 // PARTE 2: Pegando os elementos do HTML
   const imagemCarta = document.getElementById("imagemCarta")
@@ -45,16 +10,30 @@ perguntas = [
   const textoFinal = document.querySelector(".fim span");
   const conteudo = document.querySelector(".conteudo");
   const conteudoFinal = document.querySelector(".fim");
+  const btnFinalizar = document.querySelector(".progresso__geral button");
+  const btnReiniciar = document.querySelector(".fim button");
   
   // PARTE 3: Variáveis para controle do jogo
   let indiceAtual = 0; // Índice da pergunta atual
   let acertos = 0; // Contador de acertos
   
+  // Função para embaralhar um array usando o algoritmo Fisher-Yates
+  function shuffleArray(array) {
+    // Loop do último elemento para o primeiro
+    for (let i = array.length - 1; i > 0; i--) {
+      // Escolhe um índice aleatório antes do elemento atual
+      const j = Math.floor(Math.random() * (i + 1));
+      // Troca o elemento atual com o elemento do índice aleatório
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+  }
+
   // PARTE 4: Função para carregar uma nova pergunta
 function carregarPergunta() {
     progressoElemento.innerHTML = `Questão: ${indiceAtual + 1} de ${perguntas.length}`; // Atualiza o progresso
     indicePergunta.innerHTML = `${indiceAtual + 1}`;
     const perguntaAtual = perguntas[indiceAtual]; // Pega a pergunta atual
+    shuffleArray(perguntaAtual.respostas); // Embaralha as respostas da pergunta atual
     perguntaElemento.innerHTML = perguntaAtual.pergunta; // Exibe a pergunta
   
     respostasElemento.innerHTML = ""; // Limpa as respostas anteriores
@@ -67,9 +46,6 @@ function carregarPergunta() {
       
       imagemCarta.src = perguntaAtual.imagem;
       
-      
-      
-      
       const botao = document.createElement("button");
       // Adiciona a classe CSS 'botao-resposta' ao botão para estilizar
       botao.classList.add("botao-resposta");
@@ -79,7 +55,6 @@ function carregarPergunta() {
       botao.onclick = function () {
         // Se a resposta for correta (resposta.correto === true), incrementa o número de acertos
         if (resposta.correto) {
-          acertos = acertos + 1;
           acertos++; // Incrementa o contador de acertos
         }
   
@@ -101,11 +76,26 @@ function carregarPergunta() {
 }
   
   // PARTE 5: Função para mostrar a tela final
-function finalizarJogo() {
+function finalizarJogo() { // Esta função agora é chamada pelo event listener ou ao final das perguntas
     textoFinal.innerHTML = `Você acertou ${acertos} de ${perguntas.length}`; // Exibe o resultado
     conteudo.style.display = "none"; // Esconde as perguntas
     conteudoFinal.style.display = "flex"; // Mostra a tela final
 }
   
-  // PARTE 6: Iniciando o jogo pela primeira vez
+// PARTE 7: Reiniciando o Jogo
+function reiniciarJogo(){ // Esta função agora é chamada pelo event listener
+    shuffleArray(perguntas); // Embaralha a ordem das perguntas
+    conteudo.style.display = "flex"; // Mostra as perguntas
+    conteudoFinal.style.display = "none"; // Esconde a tela final
+    indiceAtual = 0; // Reinicia o índice da pergunta atual
+    acertos = 0; // Reinicia o contador de acertos
+    carregarPergunta();
+}
+  
+// PARTE 6: Adicionando Event Listeners e iniciando o jogo
+btnFinalizar.addEventListener("click", finalizarJogo);
+btnReiniciar.addEventListener("click", reiniciarJogo);
+
+// Iniciando o jogo pela primeira vez
+shuffleArray(perguntas); // Embaralha as perguntas para o primeiro jogo
 carregarPergunta();
